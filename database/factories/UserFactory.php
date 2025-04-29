@@ -26,10 +26,13 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+
+        $types = ['admin', 'user'];
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
+            'type'=>$types[rand(0,1)],
             'password' => static::$password ??= Hash::make('password'),
             'two_factor_secret' => null,
             'two_factor_recovery_codes' => null,
