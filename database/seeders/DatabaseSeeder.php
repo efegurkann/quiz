@@ -15,15 +15,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::insert([
 
-            'name' => 'Efe Gürkan',
-            'email' => 'efegurkans1@gmail.com',
-            'email_verified_at' => now(),
-            'password' => Hash::make('password'),
-            'remember_token'=> Str::random(10),
-
-         ]);
-        User::factory(5)->create();
+        $this->call([
+            UserSeeder::class,
+            quizseeder::class
+        ]);
     }
 }
