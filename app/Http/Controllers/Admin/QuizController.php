@@ -21,7 +21,7 @@ class QuizController extends Controller
      */
     public function create()
     {
-        return "create fonksiyonu";
+        return view('admin.quiz.create');
     }
 
     /**
@@ -29,7 +29,7 @@ class QuizController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request->all();
     }
 
     /**
