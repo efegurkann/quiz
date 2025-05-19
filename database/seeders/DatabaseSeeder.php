@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Models\Quiz;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,19 +16,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::insert([
-            'name' => 'Efe Gürkan',
-            'email' => 'efegurkan@gmail.com',
-            'password' => Hash::make('1020'),
-            'email_verified_at' => now(),
-            'remember_token' => Str::random(10),
-            'role' => 'admin',
+        $this->call([
+            UserSeeder::class,
+            QuizSeeder::class,
         ]);
-         User::factory(5)->create();
-
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }
