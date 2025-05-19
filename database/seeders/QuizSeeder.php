@@ -12,7 +12,7 @@ class QuizSeeder extends Seeder
      */
     public function run(): void
     {
-        Quiz::factory(5)->create();
+        Quiz::factory(10)->create();
 
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8776f4d216522d95672285df540bda54",
+    "content-hash": "a00e9ecdde13ff2ec870ab0974f2912a",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -2381,6 +2381,61 @@
                 }
             ],
             "time": "2025-04-12T22:26:52+00:00"
+        },
+        {
+            "name": "metin/laravel-turkce",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/metinbolat/laravel-turkce.git",
+                "reference": "6da81933a2a5198a6c94b372812cb9b07b5611c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/metinbolat/laravel-turkce/zipball/6da81933a2a5198a6c94b372812cb9b07b5611c2",
+                "reference": "6da81933a2a5198a6c94b372812cb9b07b5611c2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^10.0|^11.0|^12.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelTr\\AppServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelTr\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Metin",
+                    "email": "metinnbolatt@gmail.com"
+                }
+            ],
+            "description": "Laravel Türkçe dil dosyaları",
+            "keywords": [
+                "Turkish",
+                "language",
+                "laravel",
+                "localization",
+                "translation",
+                "turkce"
+            ],
+            "support": {
+                "issues": "https://github.com/metinbolat/laravel-turkce/issues",
+                "source": "https://github.com/metinbolat/laravel-turkce/tree/v1.1.0"
+            },
+            "time": "2025-03-09T21:14:52+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
