@@ -19,6 +19,7 @@
                     <td>{{ $quiz->status }}</td>
                     <td>{{ $quiz->finished_at }}</td>
                     <td>
+                        <a href="{{ route('questions.index', $quiz->id) }}" class="btn btn-sm btn-warning"><i class="fa fa-question"></i> Sorular</a>
                         <a href="{{ route('quizzes.edit', $quiz->id) }}" class="btn btn-sm btn-primary"><i class="fa fa-pen"></i> Düzenle</a>
                         <a href="{{ route('quizzes.destroy', $quiz->id) }}" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Sil</a>
                     </td>
