@@ -20,7 +20,13 @@
                   @foreach ($quiz->questions as $question)
                     <tr>
                         <td>{{ $question->question }}</td>
-                        <td>{{ $question->image }}</td>
+                        <td>
+                            @if ($question->image)
+                                <a href="{{asset($question->image)}}" class="btn btn-sm btn-primary"> Görüntüle
+                                    <i class="fa fa-image"></i>
+                                </a>
+                            @endif
+                        </td>
                         <td>{{ $question->answer1 }}</td>
                         <td>{{ $question->answer2 }}</td>
                         <td>{{ $question->answer3 }}</td>
