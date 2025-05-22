@@ -10,6 +10,8 @@ class Quiz extends Model
 
     protected $fillable = ['title', 'description', 'status', 'finished_at'];
 
+    protected $dates = ['finished_at'];
+
     public function questions()
     {
         return $this->hasMany(Question::class);

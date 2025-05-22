@@ -25,6 +25,7 @@ class QuizUpdateRequest extends FormRequest
             'title' => 'required|min:3|max:200',
             'description' => 'min:10|max:1000',
             'finished_at' => 'nullable|after:'.now(),
+            'status' => 'required|in:active,passive,draft'
         ];
     }
 
@@ -37,6 +38,8 @@ class QuizUpdateRequest extends FormRequest
             'description.min' => 'Quiz açıklaması en az 10 karakter olmalıdır.',
             'description.max' => 'Quiz açıklaması en fazla 1000 karakter olmalıdır.',
             'finished_at.after' => 'Bitiş tarihi geçmiş bir tarih olamaz.',
+            'status.required' => 'Quiz durumu zorunludur.',
+            'status.in' => 'Geçersiz quiz durumu.'
         ];
     }
 }
