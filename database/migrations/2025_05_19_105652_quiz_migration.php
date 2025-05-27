@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
+            $table->string('slug');
             $table->string('title');
             $table->longText('description')->nullable();
             $table->enum('status', ['publish','draft', 'passive', 'active'])->default('draft');

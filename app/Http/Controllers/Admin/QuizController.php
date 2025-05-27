@@ -35,6 +35,7 @@ class QuizController extends Controller
     public function create()
     {
         return view('admin.quiz.create');
+
     }
 
     /**
@@ -69,7 +70,7 @@ class QuizController extends Controller
     public function update(QuizUpdateRequest $request, string $id)
     {
         $quiz = Quiz::find($id) ?? abort(404, 'Quiz bulunamadı');
-        Quiz::where('id', $id)->update($request->except('_token', '_method'));
+        Quiz::where('id', $id)->first()->update($request->except('_token', '_method'));
         return redirect()->route('quizzes.index')->withSuccess('Quiz başarıyla güncellendi.');
     }
 
