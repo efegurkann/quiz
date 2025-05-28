@@ -18,7 +18,10 @@ class MainController extends Controller
 
     public function quiz($slug)
     {
-        $quiz = Quiz::where('slug', $slug)->with('questions')->first() ?? abort(404, 'Quiz bulunamadı');
+        $quiz = Quiz::where('slug', $slug)->with('questions.my_answer')->first() ?? abort(404, 'Quiz bulunamadı');
+        if ($quiz->my_result) {
+            return view('quiz_result', compact('quiz'));
+        }
         return view('quiz', compact('quiz'));
     }
 
@@ -45,7 +48,7 @@ class MainController extends Controller
             ]);
 
             if ($question->correct_answer === $request->post($question->id)) {
-                $correct+=1;
+                $correct += 1;
             }
         }
 
