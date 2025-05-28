@@ -6,6 +6,7 @@ use App\Models\Quiz;
 use Illuminate\Http\Request;
 use App\Models\Answer;
 use App\Models\Result;
+use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
@@ -21,12 +22,9 @@ class MainController extends Controller
         return view('quiz', compact('quiz'));
     }
 
-
-
-
     public function quiz_detail($slug)
     {
-        $quiz = Quiz::where('slug', $slug)->withCount(['my_result', 'results'])->first() ?? abort(404, 'Quiz bulunamadı');
+        $quiz = Quiz::where('slug', $slug)->withCount(['my_result', 'topTen'])->first() ?? abort(404, 'Quiz bulunamadı');
         return view('quiz_detail', compact('quiz'));
     }
 
@@ -40,14 +38,11 @@ class MainController extends Controller
         }
 
         foreach ($quiz->questions as $question) {
-
             Answer::create([
-                'user_id' => auth()->user()->id,
+                'user_id' => Auth::id(),
                 'question_id' => $question->id,
                 'answer' => $request->post($question->id),
             ]);
-
-            echo $question->correct_answer . ' - ' . $request->post($question->id) . '<br>';
 
             if ($question->correct_answer === $request->post($question->id)) {
                 $correct+=1;
@@ -58,7 +53,7 @@ class MainController extends Controller
         $wrong = count($quiz->questions) - $correct;
 
         Result::create([
-            'user_id' => auth()->user()->id,
+            'user_id' => Auth::id(),
             'quiz_id' => $quiz->id,
             'point' => $point,
             'correct' => $correct,
